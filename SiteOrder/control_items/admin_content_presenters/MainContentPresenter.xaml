@@ -1,0 +1,43 @@
+﻿<overridden:TabItemContentParent x:Class="SiteOrder.control_items.admin_content_presenters.MainContentPresenter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiteOrder.control_items.admin_content_presenters"
+             xmlns:db_context="clr-namespace:SiteOrder.db_context"
+             xmlns:converters="clr-namespace:SiteOrder.converters"  
+             xmlns:overridden="clr-namespace:SiteOrder.overridden_controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <overridden:TabItemContentParent.Resources>
+        <ResourceDictionary>
+            <converters:StatusSvgConverter x:Key="StatusSvgConverter"/>
+            <converters:StatusTextConverter x:Key="StatusTextConverter"/>
+        </ResourceDictionary>
+    </overridden:TabItemContentParent.Resources>
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical" Margin="10,15">
+            <Grid Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    FontSize="36"
+                    FontWeight="Medium"
+                    Text="Панель администратора"
+                    Padding="30,10,0,0"/>
+            </Grid>
+
+            <Button Margin="20,10" Content="Пользователи" x:Name="buttonUser" FontSize="14pt" HorizontalAlignment="Stretch" Click="buttonUser_Click"/>
+
+            <Button Margin="20,10" Content="Контроль примерных сайтов" x:Name="buttonSampleSites" FontSize="14pt" HorizontalAlignment="Stretch" Click="buttonSampleSites_Click"/>
+        </StackPanel>
+    </ScrollViewer>
+</overridden:TabItemContentParent>

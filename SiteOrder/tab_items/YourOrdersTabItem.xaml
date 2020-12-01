@@ -1,0 +1,54 @@
+﻿<overriden:TabItemParent x:Class="SiteOrder.tab_items.YourOrdersTabItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiteOrder.tab_items"
+             xmlns:templates="clr-namespace:SiteOrder.templates"
+             xmlns:resx="clr-namespace:SiteOrder.Properties"
+             xmlns:db_context="clr-namespace:SiteOrder.db_context"
+             xmlns:overriden="clr-namespace:SiteOrder.overridden_controls"
+             xmlns:converters="clr-namespace:SiteOrder.converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <overriden:TabItemParent.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonPopup}">
+                <Style.Resources>
+                    <SolidColorBrush x:Key="Button.IsEnabled.False" Color="#FFADADAD"/>
+                </Style.Resources>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="Foreground" Value="#fff"/>
+                <Setter Property="Background" Value="{StaticResource electron_blue}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border CornerRadius="5" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="{StaticResource electron_blue_hover}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" Value="{StaticResource electron_blue}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="{StaticResource Button.IsEnabled.False}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </overriden:TabItemParent.Resources>
+    <overriden:TabItemParent.Header>
+        Ваши заказы
+    </overriden:TabItemParent.Header>
+    <ContentPresenter x:Name="MainTabItemContentPresenter"/>
+</overriden:TabItemParent>

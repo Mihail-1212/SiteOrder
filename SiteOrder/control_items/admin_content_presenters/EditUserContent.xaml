@@ -1,0 +1,79 @@
+﻿<overridden:TabItemContentParent x:Class="SiteOrder.control_items.admin_content_presenters.EditUserContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiteOrder.control_items.admin_content_presenters"
+             xmlns:db_context="clr-namespace:SiteOrder.db_context"
+             xmlns:converters="clr-namespace:SiteOrder.converters"  
+             xmlns:overridden="clr-namespace:SiteOrder.overridden_controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <overridden:TabItemContentParent.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </overridden:TabItemContentParent.Resources>
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical" Margin="10,15">
+            <TextBlock Text="Редактирование пользователя"  FontSize="18pt"/>
+
+            <Border Background="{StaticResource MainWindowColor}" Padding="20,10" Grid.Row="1" Margin="0,20">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0,0,20,10"/>
+                            <Setter Property="FontSize" Value="12pt"/>
+                            <Setter Property="TextAlignment" Value="Right"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            <Setter Property="Margin" Value="0,0,0,10"/>
+                            <Setter Property="Padding" Value="7,8"/>
+                            <Setter Property="FontSize" Value="12pt"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Фамилия:" Grid.Row="0" Grid.Column="0" />
+                    <TextBox Text="{Binding surname}" x:Name="surname" Grid.Column="1"/>
+
+                    <TextBlock Text="Имя:" Grid.Row="1" Grid.Column="0" />
+                    <TextBox Text="{Binding name}" x:Name="name" Grid.Row="1" Grid.Column="1"/>
+
+                    <TextBlock Text="Отчество:" Grid.Row="2" Grid.Column="0" />
+                    <TextBox Text="{Binding patronymic}" x:Name="patronymic" Grid.Row="2" Grid.Column="1"/>
+
+                    <TextBlock Text="Логин:" Grid.Row="3" Grid.Column="0" />
+                    <TextBox Text="{Binding login}" x:Name="login" Grid.Row="3" Grid.Column="1"/>
+
+                    <TextBlock Text="Администратор:" Grid.Row="4" Grid.Column="0" />
+                    <CheckBox IsChecked="{Binding isAdministrator}" Grid.Row="4" Grid.Column="1" x:Name="isAdministrator" FontSize="16pt" VerticalAlignment="Center">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+
+                    <Button Margin="0,0,0,10" Content="Изменить пароль" Grid.Row="5" x:Name="buttonPasswordChange" Click="buttonPasswordChange_Click" Grid.Column="0" HorizontalAlignment="Stretch"/>
+                </Grid>
+            </Border>
+
+            <Grid>
+                <Button Margin="0,10,0,0" x:Name="ButtonSave" Click="ButtonSave_Click" Grid.Row="1" Grid.ColumnSpan="2" Content="Сохранить" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</overridden:TabItemContentParent>

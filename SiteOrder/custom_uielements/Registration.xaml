@@ -1,0 +1,228 @@
+﻿<UserControl x:Class="SiteOrder.custom_uielements.Registration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiteOrder.custom_uielements"
+             xmlns:custom_controls="clr-namespace:SiteOrder.custom_uielements"
+             xmlns:templates="clr-namespace:SiteOrder.templates"
+             xmlns:converters="clr-namespace:SiteOrder.converters"
+             mc:Ignorable="d" 
+             MaxWidth="250"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/styles/ColorDictionary.xaml"/>
+                <ResourceDictionary Source="/styles/IElementsResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    
+    <Grid Margin="15" Background="#fff">
+        <Grid Margin="10,15">
+            <Grid.Resources>
+                <Style TargetType="{x:Type Control}" x:Key="ControlTextBoxBase">
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="MinWidth" Value="150"/>
+                    <Setter Property="FontSize" Value="10pt"/>
+                </Style>
+                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource ControlTextBoxBase}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+                <Style TargetType="PasswordBox"  BasedOn="{StaticResource ControlTextBoxBase}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonPopup}">
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="Button.IsEnabled.False" Color="#FFADADAD"/>
+                    </Style.Resources>
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Background" Value="{StaticResource electron_blue}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ButtonBase}">
+                                <Border CornerRadius="5" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="{StaticResource electron_blue_hover}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="Background" Value="{StaticResource electron_blue}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="{StaticResource Button.IsEnabled.False}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid 
+                Height="150"
+                Width="150"
+                Margin="0,0,0,10"
+                Grid.Row="0"
+                Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Image
+                        Height="120"
+                        Stretch="UniformToFill"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="/public/image/def_user.png"/>
+                <TextBlock Grid.Row="1" Text="Регистрация" Margin="0,5,0,0" TextAlignment="Center" FontSize="14pt"/>
+            </Grid>
+
+            <Border Grid.Row="1" 
+                  Margin="0,5"
+                  FocusManager.FocusedElement="{Binding ElementName=loginBox}"
+                    BorderBrush="{StaticResource darkula}"
+                    BorderThickness="1"
+                  CornerRadius="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0"
+                        x:Name="loginBox"
+                        Background="Transparent"
+                        Foreground="Black"
+                        Panel.ZIndex="2"
+                        FontSize="12"
+                        TextChanged="loginBox_TextChanged"
+                        PreviewTextInput="loginBox_PreviewTextInput"
+                        FocusManager.IsFocusScope="True"/>
+
+                    <TextBox Grid.Row="0"
+                        Text="Логин"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="12"
+                        Foreground="{StaticResource PlaceHolderColor}"
+                        x:Name="TextBoxLoginPlaseholder"
+                        FocusManager.IsFocusScope="False">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource ControlTextBoxBase}">
+
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" 
+                  Margin="0,5"
+                  FocusManager.FocusedElement="{Binding ElementName=loginBox}"
+                    BorderBrush="{StaticResource darkula}"
+                    BorderThickness="1"
+                  CornerRadius="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0"
+                        x:Name="passwordBox"
+                        Background="Transparent"
+                        Foreground="Black"
+                        Panel.ZIndex="2"
+                        FontSize="12"
+                             PreviewTextInput="loginBox_PreviewTextInput"
+                        TextChanged="passwordBox_TextChanged"
+                        FocusManager.IsFocusScope="True"/>
+
+                    <TextBox Grid.Row="0"
+                        Text="Пароль"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="12"
+                        Foreground="{StaticResource PlaceHolderColor}"
+                        x:Name="passwordBoxPlaseholder"
+                        FocusManager.IsFocusScope="False">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource ControlTextBoxBase}">
+
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="3" 
+                  Margin="0,5"
+                  FocusManager.FocusedElement="{Binding ElementName=loginBox}"
+                    BorderBrush="{StaticResource darkula}"
+                    BorderThickness="1"
+                  CornerRadius="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0"
+                        x:Name="passwordRepeatBox"
+                        Background="Transparent"
+                        Foreground="Black"
+                        Panel.ZIndex="2"
+                        FontSize="12"
+                             PreviewTextInput="loginBox_PreviewTextInput"
+                        TextChanged="passwordRepeatBox_TextChanged"
+                        FocusManager.IsFocusScope="True"/>
+
+                    <TextBox Grid.Row="0"
+                        Text="Повторите пароль"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="12"
+                        Foreground="{StaticResource PlaceHolderColor}"
+                        x:Name="passwordRepeatBoxPlaseholder"
+                        FocusManager.IsFocusScope="False">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource ControlTextBoxBase}">
+
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+            </Border>
+
+            <!--<local:CustomTextBox Grid.Row="2" Placeholder="Логин" />-->
+
+            <Button 
+                Content="Зарегистрироваться"
+                HorizontalAlignment="Stretch"
+                Command="{Binding Source={x:Static templates:CustomWindow.profileRegistration}}"
+                Grid.Row="4"/>
+
+            <TextBlock Grid.Row="5" Text="Авторизоваться" HorizontalAlignment="Right" Margin="0,7,0,0"  Style="{StaticResource textblockHref}">
+                <TextBlock.InputBindings>
+                    <MouseBinding Command="{Binding Source={x:Static templates:CustomWindow.goToAuthOrReg}}" MouseAction="LeftClick" />
+                </TextBlock.InputBindings>
+            </TextBlock>
+
+        </Grid>
+    </Grid>
+</UserControl>

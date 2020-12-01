@@ -1,0 +1,139 @@
+﻿<overridden:TabItemContentParent x:Class="SiteOrder.control_items.executor_content_presenters.ShowTechnicalTaskContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiteOrder.control_items.executor_content_presenters"
+             xmlns:db_context="clr-namespace:SiteOrder.db_context"
+             xmlns:overridden="clr-namespace:SiteOrder.overridden_controls"
+             xmlns:converters="clr-namespace:SiteOrder.converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <overridden:TabItemContentParent.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:StatusSvgConverter x:Key="StatusSvgConverter"/>
+            <converters:StatusTextConverter x:Key="StatusTextConverter"/>
+            
+            <Style TargetType="ListBox" x:Key="ListStyle" BasedOn="{StaticResource {x:Type ListBox}}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count}" Value="0">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <TextBlock FontSize="12pt" >У данного технического задания нет требований</TextBlock>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </overridden:TabItemContentParent.Resources>
+    <ScrollViewer>
+        <Grid Margin="10,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Просмотр технического задания" FontSize="18pt"/>
+                <Button Margin="10,5,0,5" Grid.Column="1" VerticalAlignment="Center" FontSize="10px" ToolTip="Взять техническое задание" x:Name="buttonDemandAdd" Click="buttonDemandAdd_Click">
+                    <Button.Content>
+                        <Path
+                            Width="20"
+                            Height="20"
+                            Data="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"        
+                            Fill="White"
+                            Stretch="Uniform"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Margin="10,5,0,5" Grid.Column="1" VerticalAlignment="Center" FontSize="10px" ToolTip="Работать с техническим заданием" x:Name="buttonTechnicalTaskWork" Click="buttonTechnicalTaskWork_Click">
+                    <Button.Content>
+                        <Path
+                            Width="20"
+                            Height="20"
+                            Data="M20,6C20.58,6 21.05,6.2 21.42,6.59C21.8,7 22,7.45 22,8V19C22,19.55 21.8,20 21.42,20.41C21.05,20.8 20.58,21 20,21H4C3.42,21 2.95,20.8 2.58,20.41C2.2,20 2,19.55 2,19V8C2,7.45 2.2,7 2.58,6.59C2.95,6.2 3.42,6 4,6H8V4C8,3.42 8.2,2.95 8.58,2.58C8.95,2.2 9.42,2 10,2H14C14.58,2 15.05,2.2 15.42,2.58C15.8,2.95 16,3.42 16,4V6H20M4,8V19H20V8H4M14,6V4H10V6H14Z"        
+                            Fill="White"
+                            Stretch="Uniform"/>
+                    </Button.Content>
+                </Button>
+
+                <TextBlock Grid.Row="1">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}Дата создания: {0:dd.MM.yyyy HH:mm:ss}">
+                            <Binding Path="createDatetime" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Grid>
+
+            <Border Background="{StaticResource MainWindowColor}" Padding="20,10" Margin="0,20" Grid.Row="1">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0,0,20,0"/>
+                            <Setter Property="FontSize" Value="12pt"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="7,8"/>
+                            <Setter Property="FontSize" Value="12pt"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Название:" Grid.Row="0" Grid.Column="0" />
+                    <TextBlock Text="{Binding name}" x:Name="name" Grid.Column="1"/>
+
+                    <TextBlock Text="Создатель:" Grid.Row="1" Grid.Column="0" />
+                    <TextBlock Text="{Binding Customer, TargetNullValue='Создатель удалил свой профиль'}" x:Name="customer" Grid.Row="1" Grid.Column="1"/>
+
+                </Grid>
+            </Border>
+
+            <TextBlock Text="Список требований" Grid.Row="2" FontSize="18pt" Padding="30,0,0,0"/>
+
+            <ListBox ItemsSource="{Binding Demand}" Grid.Row="3" Cursor="Hand" MouseDoubleClick="ListBox_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{StaticResource ListStyle}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,2" Height="80">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding name}" FontSize="13pt" />
+                            <TextBlock Text="{Binding text}" TextWrapping="Wrap" Grid.Row="1" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Grid.Row="4" Content="Отказаться" Style="{StaticResource ButtonDelete}" x:Name="buttonRefuseTechnicalTask" Click="buttonRefuseTechnicalTask_Click" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+        </Grid>
+    </ScrollViewer>
+</overridden:TabItemContentParent>

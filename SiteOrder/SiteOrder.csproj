@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props" Condition="Exists('packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A70951C-7448-461D-B74D-D1660986AFCD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SiteOrder</RootNamespace>
+    <AssemblyName>SiteOrder</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mainIcon_little.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=3.3.1.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>packages\PropertyChanged.Fody.3.3.1\lib\net40\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="control_items\admin_content_presenters\EditSampleSiteContent.xaml.cs">
+      <DependentUpon>EditSampleSiteContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\admin_content_presenters\EditUserContent.xaml.cs">
+      <DependentUpon>EditUserContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\admin_content_presenters\MainContentPresenter.xaml.cs">
+      <DependentUpon>MainContentPresenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\admin_content_presenters\SampleSiteListContent.xaml.cs">
+      <DependentUpon>SampleSiteListContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\admin_content_presenters\UserListContent.xaml.cs">
+      <DependentUpon>UserListContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\AvaibleTechnicalTaskListContent.xaml.cs">
+      <DependentUpon>AvaibleTechnicalTaskListContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\EditSiteLayoutContent.xaml.cs">
+      <DependentUpon>EditSiteLayoutContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\MainContentPresenter.xaml.cs">
+      <DependentUpon>MainContentPresenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\ShowDemandContent.xaml.cs">
+      <DependentUpon>ShowDemandContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\ShowTechnicalTaskContent.xaml.cs">
+      <DependentUpon>ShowTechnicalTaskContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\SiteLayoutListContent.xaml.cs">
+      <DependentUpon>SiteLayoutListContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\SiteLayoutPossibleListContent.xaml.cs">
+      <DependentUpon>SiteLayoutPossibleListContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\executor_content_presenters\SiteLayoutWorkContent.xaml.cs">
+      <DependentUpon>SiteLayoutWorkContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\main_content_presenters\MainContentPresenter.xaml.cs">
+      <DependentUpon>MainContentPresenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\main_content_presenters\EditProfileContent.xaml.cs">
+      <DependentUpon>EditProfileContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\your_order_content_presenters\DemandContent.xaml.cs">
+      <DependentUpon>DemandContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\your_order_content_presenters\EditDemandContent.xaml.cs">
+      <DependentUpon>EditDemandContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\your_order_content_presenters\EditTechnicalTaskContent.xaml.cs">
+      <DependentUpon>EditTechnicalTaskContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\your_order_content_presenters\MainContentPresenter.xaml.cs">
+      <DependentUpon>MainContentPresenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="control_items\your_order_content_presenters\TechnicalTaskContent.xaml.cs">
+      <DependentUpon>TechnicalTaskContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="converters\ProfileImageConverter.cs" />
+    <Compile Include="custom_uielements\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dialog_windows\Dialog.xaml.cs">
+      <DependentUpon>Dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="graphic_editor\Controls\ColorPicker.cs" />
+    <Compile Include="graphic_editor\Controls\DrawControl.cs" />
+    <Compile Include="graphic_editor\Extentions\DrawingExtentions.cs" />
+    <Compile Include="graphic_editor\Model\Layer.cs" />
+    <Compile Include="graphic_editor\Model\LayerBundle.cs" />
+    <Compile Include="graphic_editor\Model\Scene.cs" />
+    <Compile Include="graphic_editor\MVVM\RelayCommand.cs" />
+    <Compile Include="graphic_editor\MVVM\ViewModelBase.cs" />
+    <Compile Include="graphic_editor\ViewModel\LayerViewModel.cs" />
+    <Compile Include="graphic_editor\ViewModel\MainViewModel.cs" />
+    <Compile Include="graphic_editor\ViewModel\SceneViewModel.cs" />
+    <Compile Include="graphic_editor\View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="overridden_controls\TabItemContentParent.cs" />
+    <Compile Include="overridden_controls\TabItemParent.cs" />
+    <Compile Include="tab_items\AdminTabItem.xaml.cs">
+      <DependentUpon>AdminTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="tab_items\ExecutorTabItem.xaml.cs">
+      <DependentUpon>ExecutorTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="tab_items\MainTabItem.xaml.cs">
+      <DependentUpon>MainTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="tab_items\YourOrdersTabItem.xaml.cs">
+      <DependentUpon>YourOrdersTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="converters\BoolInverter.cs" />
+    <Compile Include="converters\EmailConverter.cs" />
+    <Compile Include="converters\FIO_converter.cs" />
+    <Compile Include="converters\HalfWidthConverter.cs" />
+    <Compile Include="converters\RightsConverter.cs" />
+    <Compile Include="converters\StatusButtonSvgConverter.cs" />
+    <Compile Include="converters\StatusSvgConverter.cs" />
+    <Compile Include="converters\StatusTextConverter.cs" />
+    <Compile Include="custom_uielements\Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="custom_uielements\UserPopup.xaml.cs">
+      <DependentUpon>UserPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="custom_uielements\CustomWindow.cs" />
+    <Page Include="control_items\admin_content_presenters\EditSampleSiteContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\admin_content_presenters\EditUserContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\admin_content_presenters\MainContentPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\admin_content_presenters\SampleSiteListContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\admin_content_presenters\UserListContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\AvaibleTechnicalTaskListContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\EditSiteLayoutContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\MainContentPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\ShowDemandContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\ShowTechnicalTaskContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\SiteLayoutListContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\SiteLayoutPossibleListContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\executor_content_presenters\SiteLayoutWorkContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\main_content_presenters\MainContentPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\main_content_presenters\EditProfileContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\your_order_content_presenters\DemandContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\your_order_content_presenters\EditDemandContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\your_order_content_presenters\EditTechnicalTaskContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\your_order_content_presenters\MainContentPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="control_items\your_order_content_presenters\TechnicalTaskContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="custom_uielements\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dialog_windows\Dialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="graphic_editor\View\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="tab_items\AdminTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="tab_items\ExecutorTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="tab_items\MainTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="tab_items\YourOrdersTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="custom_uielements\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="custom_uielements\UserPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="db_context\dbHelper.cs" />
+    <Compile Include="db_context\Demand.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\LayoutAccess.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\Logbook.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\SampleSite.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\SampleSitesGroup.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\SiteLayout.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\SitesCreate.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SitesCreate.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\SitesCreate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\SitesCreate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SitesCreate.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\sysdiagrams.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\TechnicalTask.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_context\User.cs">
+      <DependentUpon>SitesCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="helper\Helper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="styles\ColorDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\IElementsResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\MainScrollViewerStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\MainTabControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\MainWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\RadioButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="db_context\SitesCreate.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SitesCreate.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="db_context\SitesCreate.edmx.diagram">
+      <DependentUpon>SitesCreate.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mainIcon_little.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="public\image\def_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="db_context\SitesCreate.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SitesCreate.edmx</DependentUpon>
+      <LastGenOutput>SitesCreate.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="db_context\SitesCreate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SitesCreate.edmx</DependentUpon>
+      <LastGenOutput>SitesCreate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bindnigs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Fody.6.3.0\build\Fody.targets" Condition="Exists('packages\Fody.6.3.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Fody.6.3.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.3.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props'))" />
+  </Target>
+</Project>

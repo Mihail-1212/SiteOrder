@@ -1,0 +1,79 @@
+﻿<overridden:TabItemContentParent x:Class="SiteOrder.control_items.executor_content_presenters.SiteLayoutPossibleListContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiteOrder.control_items.executor_content_presenters"
+             xmlns:db_context="clr-namespace:SiteOrder.db_context"
+             xmlns:overridden="clr-namespace:SiteOrder.overridden_controls"
+             xmlns:converters="clr-namespace:SiteOrder.converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <overridden:TabItemContentParent.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </overridden:TabItemContentParent.Resources>
+
+    <Grid Margin="10,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Список всех шаблонов"  FontSize="18pt" Margin="0,0,0,20"/>
+
+        <DataGrid Grid.ColumnSpan="2" Grid.Row="1" x:Name="datagridSiteLayoutFullList" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Описание" Binding="{Binding description}" Width="*"/>
+
+                <DataGridTextColumn Header="Владелец" Width="*" Binding="{Binding Owner}"/>
+                
+                <DataGridTextColumn Header="Тип макета" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding isPublic}" Value="True">
+                                    <Setter Property="Text" Value="Публичный"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding isPublic}" Value="False">
+                                    <Setter Property="Text" Value="Приватный"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTemplateColumn Header="Запрос" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Работать" Margin="8,5" x:Name="buttonRequestLayout" Click="buttonRequestLayout_Click" FontSize="10pt"/>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding isPublic}" Value="True">
+                                    <Setter TargetName="buttonRequestLayout" Property="Content" Value="Получить права"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding isPublic}" Value="False">
+                                    <Setter TargetName="buttonRequestLayout" Property="Content" Value="Запросить права"></Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--
+        <Button Content="Запросить доступ" Grid.Row="2" Grid.Column="0" x:Name="buttonRequestLayout" Click="buttonRequestLayout_Click" Margin="0,10,0,0"/>
+        -->
+
+    </Grid>
+
+</overridden:TabItemContentParent>

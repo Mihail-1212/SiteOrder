@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12398d0af8984613886a72c817d11305" Name="Diagram1">
+        <EntityTypeShape EntityType="SitesCreateModel.Demand" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitesCreateModel.LayoutAccess" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitesCreateModel.Logbook" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitesCreateModel.SampleSitesGroup" Width="1.5" PointX="6.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitesCreateModel.SiteLayout" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SitesCreateModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="SitesCreateModel.FK_SampleSitesGroup_Demand" ManuallyRouted="false" />
+        <AssociationConnector Association="SitesCreateModel.FK_LayoutAccess_Logbook" ManuallyRouted="false" />
+        <AssociationConnector Association="SitesCreateModel.FK_LayoutAccess_SiteLayout" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SitesCreateModel.TechnicalTask" Width="1.5" PointX="0.75" PointY="2.375" />
+        <AssociationConnector Association="SitesCreateModel.FK_Demand_TechnicalTask1" />
+        <AssociationConnector Association="SitesCreateModel.FK_Logbook_TechnicalTask1" />
+        <EntityTypeShape EntityType="SitesCreateModel.SampleSite" Width="1.5" PointX="7.375" PointY="6.875" />
+        <AssociationConnector Association="SitesCreateModel.FK_SampleSitesGroup_SampleSite" />
+        <EntityTypeShape EntityType="SitesCreateModel.User" Width="1.5" PointX="9.375" PointY="5" />
+        <AssociationConnector Association="SitesCreateModel.FK_Logbook_User" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

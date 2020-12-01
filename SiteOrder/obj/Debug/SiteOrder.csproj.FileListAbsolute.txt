@@ -1,0 +1,116 @@
+C:\Users\usersql\Desktop\SiteOrder\bin\Debug\SiteOrder.exe.config
+C:\Users\usersql\Desktop\SiteOrder\bin\Debug\SiteOrder.exe
+C:\Users\usersql\Desktop\SiteOrder\bin\Debug\SiteOrder.pdb
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\styles\MainWindowStyle.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\custom_uielements\UserPopup.g.cs
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\MainWindow.g.cs
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\App.g.cs
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder_MarkupCompile.cache
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder_MarkupCompile.lref
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\App.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\custom_uielements\UserPopup.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\MainWindow.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\styles\ColorDictionary.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\styles\IElementsResourceDictionary.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\styles\MainTabControlStyle.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder.g.resources
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder.Properties.Resources.resources
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder.csproj.GenerateResource.Cache
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder.csproj.CoreCompileInputs.cache
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder.exe
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\SiteOrder.pdb
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\custom_uielements\Authorization.g.cs
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\custom_uielements\Authorization.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\styles\TextBoxResourceDictionary.baml
+C:\Users\usersql\Desktop\SiteOrder\obj\Debug\styles\PasswordBoxResourceDictionary.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\SiteOrder.exe.config
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\SiteOrder.exe
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\SiteOrder.pdb
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\EntityFramework.dll
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\EntityFramework.xml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\styles\MainWindowStyle.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\EditSampleSiteContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\EditUserContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\MainContentPresenter.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\SampleSiteListContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\UserListContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\AvaibleTechnicalTaskListContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\MainContentPresenter.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\ShowDemandContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\ShowTechnicalTaskContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\SiteLayoutListContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\SiteLayoutPossibleListContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\SiteLayoutWorkContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\main_content_presenters\MainContentPresenter.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\main_content_presenters\EditProfileContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\DemandContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\EditDemandContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\EditTechnicalTaskContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\MainContentPresenter.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\TechnicalTaskContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\custom_uielements\Registration.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\dialog_windows\Dialog.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\graphic_editor\View\MainView.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\AdminTabItem.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\ExecutorTabItem.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\MainTabItem.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\YourOrdersTabItem.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\custom_uielements\Authorization.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\custom_uielements\UserPopup.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\MainWindow.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\App.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder_Content.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder_MarkupCompile.cache
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder_MarkupCompile.lref
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\App.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\EditSampleSiteContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\EditUserContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\MainContentPresenter.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\SampleSiteListContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\admin_content_presenters\UserListContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\AvaibleTechnicalTaskListContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\MainContentPresenter.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\ShowDemandContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\ShowTechnicalTaskContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\SiteLayoutListContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\SiteLayoutPossibleListContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\SiteLayoutWorkContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\main_content_presenters\MainContentPresenter.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\main_content_presenters\EditProfileContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\DemandContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\EditDemandContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\EditTechnicalTaskContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\MainContentPresenter.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\your_order_content_presenters\TechnicalTaskContent.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\custom_uielements\Registration.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\dialog_windows\Dialog.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\graphic_editor\View\MainView.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\AdminTabItem.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\ExecutorTabItem.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\MainTabItem.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\tab_items\YourOrdersTabItem.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\custom_uielements\Authorization.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\custom_uielements\UserPopup.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\MainWindow.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\styles\ColorDictionary.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\styles\IElementsResourceDictionary.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\styles\MainScrollViewerStyle.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\styles\MainTabControlStyle.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\styles\RadioButtonStyle.baml
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.g.resources
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.Properties.Resources.resources
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.csproj.GenerateResource.cache
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.csproj.CoreCompileInputs.cache
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.csproj.Fody.CopyLocal.cache
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.csproj.CopyComplete
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.exe
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.pdb
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\SiteOrder.csprojAssemblyReference.cache
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\EditSiteLayoutContent.g.cs
+C:\Users\mamok\OneDrive\Рабочий стол\SiteOrder\obj\Debug\control_items\executor_content_presenters\EditSiteLayoutContent.baml

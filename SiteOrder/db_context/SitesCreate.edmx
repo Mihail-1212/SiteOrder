@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище SitesCreateModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Demand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="text" Type="text" Nullable="false" />
+          <Property Name="technicalTaskId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LayoutAccess">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="executerId" Type="int" Nullable="false" />
+          <Property Name="siteLayoutId" Type="int" Nullable="false" />
+          <Property Name="haveAccess" Type="bit" Nullable="false" />
+          <Property Name="isOwner" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logbook">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="technicalTaskId" Type="int" Nullable="false" />
+          <Property Name="userLogin" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="userType" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SampleSite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="siteURL" Type="nvarchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SampleSitesGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sampleSiteId" Type="int" Nullable="false" />
+          <Property Name="demandId" Type="int" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="SiteLayout">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="2048" Nullable="false" />
+          <Property Name="fileName" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="isPublic" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TechnicalTask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="createDatetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="surname" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="patronymic" Type="nvarchar" MaxLength="255" />
+          <Property Name="isAdministrator" Type="bit" Nullable="false" />
+          <Property Name="photo" Type="nvarchar" MaxLength="1024" />
+          <Property Name="email" Type="nvarchar" MaxLength="1024" />
+        </EntityType>
+        <Association Name="FK_Demand_TechnicalTask1">
+          <End Role="TechnicalTask" Type="Self.TechnicalTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Demand" Type="Self.Demand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalTask">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Demand">
+              <PropertyRef Name="technicalTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LayoutAccess_Logbook">
+          <End Role="Logbook" Type="Self.Logbook" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LayoutAccess" Type="Self.LayoutAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logbook">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LayoutAccess">
+              <PropertyRef Name="executerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LayoutAccess_SiteLayout">
+          <End Role="SiteLayout" Type="Self.SiteLayout" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LayoutAccess" Type="Self.LayoutAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiteLayout">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LayoutAccess">
+              <PropertyRef Name="siteLayoutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logbook_TechnicalTask1">
+          <End Role="TechnicalTask" Type="Self.TechnicalTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Logbook" Type="Self.Logbook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalTask">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Logbook">
+              <PropertyRef Name="technicalTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logbook_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Logbook" Type="Self.Logbook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="Logbook">
+              <PropertyRef Name="userLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SampleSitesGroup_Demand">
+          <End Role="Demand" Type="Self.Demand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SampleSitesGroup" Type="Self.SampleSitesGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SampleSitesGroup">
+              <PropertyRef Name="demandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SampleSitesGroup_SampleSite">
+          <End Role="SampleSite" Type="Self.SampleSite" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SampleSitesGroup" Type="Self.SampleSitesGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SampleSite">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SampleSitesGroup">
+              <PropertyRef Name="sampleSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SitesCreateModelContainer">
+          <EntitySet Name="Demand" EntityType="Self.Demand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LayoutAccess" EntityType="Self.LayoutAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logbook" EntityType="Self.Logbook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SampleSite" EntityType="Self.SampleSite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SampleSitesGroup" EntityType="Self.SampleSitesGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteLayout" EntityType="Self.SiteLayout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicalTask" EntityType="Self.TechnicalTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Demand_TechnicalTask1" Association="Self.FK_Demand_TechnicalTask1">
+            <End Role="TechnicalTask" EntitySet="TechnicalTask" />
+            <End Role="Demand" EntitySet="Demand" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LayoutAccess_Logbook" Association="Self.FK_LayoutAccess_Logbook">
+            <End Role="Logbook" EntitySet="Logbook" />
+            <End Role="LayoutAccess" EntitySet="LayoutAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LayoutAccess_SiteLayout" Association="Self.FK_LayoutAccess_SiteLayout">
+            <End Role="SiteLayout" EntitySet="SiteLayout" />
+            <End Role="LayoutAccess" EntitySet="LayoutAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logbook_TechnicalTask1" Association="Self.FK_Logbook_TechnicalTask1">
+            <End Role="TechnicalTask" EntitySet="TechnicalTask" />
+            <End Role="Logbook" EntitySet="Logbook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logbook_User" Association="Self.FK_Logbook_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Logbook" EntitySet="Logbook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SampleSitesGroup_Demand" Association="Self.FK_SampleSitesGroup_Demand">
+            <End Role="Demand" EntitySet="Demand" />
+            <End Role="SampleSitesGroup" EntitySet="SampleSitesGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SampleSitesGroup_SampleSite" Association="Self.FK_SampleSitesGroup_SampleSite">
+            <End Role="SampleSite" EntitySet="SampleSite" />
+            <End Role="SampleSitesGroup" EntitySet="SampleSitesGroup" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SitesCreateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Demand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="technicalTaskId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SampleSitesGroup" Relationship="Self.FK_SampleSitesGroup_Demand" FromRole="Demand" ToRole="SampleSitesGroup" />
+          <NavigationProperty Name="TechnicalTask" Relationship="SitesCreateModel.FK_Demand_TechnicalTask1" FromRole="Demand" ToRole="TechnicalTask" />
+        </EntityType>
+        <EntityType Name="LayoutAccess">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="executerId" Type="Int32" Nullable="false" />
+          <Property Name="siteLayoutId" Type="Int32" Nullable="false" />
+          <Property Name="haveAccess" Type="Boolean" Nullable="false" />
+          <Property Name="isOwner" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Logbook" Relationship="Self.FK_LayoutAccess_Logbook" FromRole="LayoutAccess" ToRole="Logbook" />
+          <NavigationProperty Name="SiteLayout" Relationship="Self.FK_LayoutAccess_SiteLayout" FromRole="LayoutAccess" ToRole="SiteLayout" />
+        </EntityType>
+        <EntityType Name="Logbook">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="technicalTaskId" Type="Int32" Nullable="false" />
+          <Property Name="userLogin" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LayoutAccess" Relationship="Self.FK_LayoutAccess_Logbook" FromRole="Logbook" ToRole="LayoutAccess" />
+          <NavigationProperty Name="TechnicalTask" Relationship="SitesCreateModel.FK_Logbook_TechnicalTask1" FromRole="Logbook" ToRole="TechnicalTask" />
+          <NavigationProperty Name="User" Relationship="SitesCreateModel.FK_Logbook_User" FromRole="Logbook" ToRole="User" />
+        </EntityType>
+        <EntityType Name="SampleSitesGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sampleSiteId" Type="Int32" Nullable="false" />
+          <Property Name="demandId" Type="Int32" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Demand" Relationship="Self.FK_SampleSitesGroup_Demand" FromRole="SampleSitesGroup" ToRole="Demand" />
+          <NavigationProperty Name="SampleSite" Relationship="SitesCreateModel.FK_SampleSitesGroup_SampleSite" FromRole="SampleSitesGroup" ToRole="SampleSite" />
+        </EntityType>
+        <EntityType Name="SiteLayout">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fileName" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isPublic" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LayoutAccess" Relationship="Self.FK_LayoutAccess_SiteLayout" FromRole="SiteLayout" ToRole="LayoutAccess" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_SampleSitesGroup_Demand">
+          <End Role="Demand" Type="Self.Demand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SampleSitesGroup" Type="Self.SampleSitesGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SampleSitesGroup">
+              <PropertyRef Name="demandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LayoutAccess_Logbook">
+          <End Role="Logbook" Type="Self.Logbook" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LayoutAccess" Type="Self.LayoutAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logbook">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LayoutAccess">
+              <PropertyRef Name="executerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LayoutAccess_SiteLayout">
+          <End Role="SiteLayout" Type="Self.SiteLayout" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LayoutAccess" Type="Self.LayoutAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiteLayout">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LayoutAccess">
+              <PropertyRef Name="siteLayoutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SitesCreateEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Demand" EntityType="Self.Demand" />
+          <EntitySet Name="LayoutAccess" EntityType="Self.LayoutAccess" />
+          <EntitySet Name="Logbook" EntityType="Self.Logbook" />
+          <EntitySet Name="SampleSitesGroup" EntityType="Self.SampleSitesGroup" />
+          <EntitySet Name="SiteLayout" EntityType="Self.SiteLayout" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_SampleSitesGroup_Demand" Association="Self.FK_SampleSitesGroup_Demand">
+            <End Role="Demand" EntitySet="Demand" />
+            <End Role="SampleSitesGroup" EntitySet="SampleSitesGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LayoutAccess_Logbook" Association="Self.FK_LayoutAccess_Logbook">
+            <End Role="Logbook" EntitySet="Logbook" />
+            <End Role="LayoutAccess" EntitySet="LayoutAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LayoutAccess_SiteLayout" Association="Self.FK_LayoutAccess_SiteLayout">
+            <End Role="SiteLayout" EntitySet="SiteLayout" />
+            <End Role="LayoutAccess" EntitySet="LayoutAccess" />
+          </AssociationSet>
+          <EntitySet Name="TechnicalTask" EntityType="SitesCreateModel.TechnicalTask" />
+          <AssociationSet Name="FK_Demand_TechnicalTask1" Association="SitesCreateModel.FK_Demand_TechnicalTask1">
+            <End Role="TechnicalTask" EntitySet="TechnicalTask" />
+            <End Role="Demand" EntitySet="Demand" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logbook_TechnicalTask1" Association="SitesCreateModel.FK_Logbook_TechnicalTask1">
+            <End Role="TechnicalTask" EntitySet="TechnicalTask" />
+            <End Role="Logbook" EntitySet="Logbook" />
+          </AssociationSet>
+          <EntitySet Name="SampleSite" EntityType="SitesCreateModel.SampleSite" />
+          <AssociationSet Name="FK_SampleSitesGroup_SampleSite" Association="SitesCreateModel.FK_SampleSitesGroup_SampleSite">
+            <End Role="SampleSite" EntitySet="SampleSite" />
+            <End Role="SampleSitesGroup" EntitySet="SampleSitesGroup" />
+          </AssociationSet>
+          <EntitySet Name="User" EntityType="SitesCreateModel.User" />
+          <AssociationSet Name="FK_Logbook_User" Association="SitesCreateModel.FK_Logbook_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Logbook" EntitySet="Logbook" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="TechnicalTask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Demand" Relationship="SitesCreateModel.FK_Demand_TechnicalTask1" FromRole="TechnicalTask" ToRole="Demand" />
+          <NavigationProperty Name="Logbook" Relationship="SitesCreateModel.FK_Logbook_TechnicalTask1" FromRole="TechnicalTask" ToRole="Logbook" />
+        </EntityType>
+        <Association Name="FK_Demand_TechnicalTask1">
+          <End Type="SitesCreateModel.TechnicalTask" Role="TechnicalTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SitesCreateModel.Demand" Role="Demand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalTask">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Demand">
+              <PropertyRef Name="technicalTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logbook_TechnicalTask1">
+          <End Type="SitesCreateModel.TechnicalTask" Role="TechnicalTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SitesCreateModel.Logbook" Role="Logbook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalTask">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Logbook">
+              <PropertyRef Name="technicalTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SampleSite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="siteURL" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SampleSitesGroup" Relationship="SitesCreateModel.FK_SampleSitesGroup_SampleSite" FromRole="SampleSite" ToRole="SampleSitesGroup" />
+        </EntityType>
+        <Association Name="FK_SampleSitesGroup_SampleSite">
+          <End Type="SitesCreateModel.SampleSite" Role="SampleSite" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SitesCreateModel.SampleSitesGroup" Role="SampleSitesGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SampleSite">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SampleSitesGroup">
+              <PropertyRef Name="sampleSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="surname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="patronymic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="isAdministrator" Type="Boolean" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Logbook" Relationship="SitesCreateModel.FK_Logbook_User" FromRole="User" ToRole="Logbook" />
+        </EntityType>
+        <Association Name="FK_Logbook_User">
+          <End Type="SitesCreateModel.User" Role="User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SitesCreateModel.Logbook" Role="Logbook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="Logbook">
+              <PropertyRef Name="userLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SitesCreateModelContainer" CdmEntityContainer="SitesCreateEntities">
+          <EntitySetMapping Name="Demand">
+            <EntityTypeMapping TypeName="SitesCreateModel.Demand">
+              <MappingFragment StoreEntitySet="Demand">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="technicalTaskId" ColumnName="technicalTaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LayoutAccess">
+            <EntityTypeMapping TypeName="SitesCreateModel.LayoutAccess">
+              <MappingFragment StoreEntitySet="LayoutAccess">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="executerId" ColumnName="executerId" />
+                <ScalarProperty Name="siteLayoutId" ColumnName="siteLayoutId" />
+                <ScalarProperty Name="haveAccess" ColumnName="haveAccess" />
+                <ScalarProperty Name="isOwner" ColumnName="isOwner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logbook">
+            <EntityTypeMapping TypeName="SitesCreateModel.Logbook">
+              <MappingFragment StoreEntitySet="Logbook">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="technicalTaskId" ColumnName="technicalTaskId" />
+                <ScalarProperty Name="userLogin" ColumnName="userLogin" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SampleSitesGroup">
+            <EntityTypeMapping TypeName="SitesCreateModel.SampleSitesGroup">
+              <MappingFragment StoreEntitySet="SampleSitesGroup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sampleSiteId" ColumnName="sampleSiteId" />
+                <ScalarProperty Name="demandId" ColumnName="demandId" />
+                <ScalarProperty Name="note" ColumnName="note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteLayout">
+            <EntityTypeMapping TypeName="SitesCreateModel.SiteLayout">
+              <MappingFragment StoreEntitySet="SiteLayout">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="fileName" ColumnName="fileName" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SitesCreateModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalTask">
+            <EntityTypeMapping TypeName="SitesCreateModel.TechnicalTask">
+              <MappingFragment StoreEntitySet="TechnicalTask">
+                <ScalarProperty Name="createDatetime" ColumnName="createDatetime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SampleSite">
+            <EntityTypeMapping TypeName="SitesCreateModel.SampleSite">
+              <MappingFragment StoreEntitySet="SampleSite">
+                <ScalarProperty Name="siteURL" ColumnName="siteURL" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="SitesCreateModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="isAdministrator" ColumnName="isAdministrator" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
